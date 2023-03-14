@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+.heading{
+    margin-top: 80px;
+    margin-left: 70px;
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1.2;
+}
+.underheading{
+    height: 30px;
+    margin-left: 50px;
+}
+.content{
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    margin-left: 40px;
+    position: relative;
+    word-spacing: 2;
+    line-height: 1.5;
+}
+.besideContent{
+    height: 400px;
+    position: relative;
+    bottom: 80px;
+}
+.sharing{
+    font-weight: bolder;
+    font-size: 20px;
+}
