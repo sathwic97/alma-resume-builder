@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium';
+  }
+  img{
+    margin-right: auto;
+    margin-left: 20px;
+    padding:   5px ;
+    min-height: 35px;
+    min-width: 120px
+  }
+  .navLinks{
+    color: black;
+    text-decoration: none;
+    padding: 8px;
+  }
+  .navLink{
+    color: black;
+    text-decoration: none;
+  } 
+  
+  .navLink.active{
+    color: rgb(0, 128, 255);
+  }
+   .navLinks.active {
+    color: rgb(0, 128, 255);
+  }
+  
+  
+  
