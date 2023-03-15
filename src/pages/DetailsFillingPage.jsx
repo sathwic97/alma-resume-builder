@@ -1,40 +1,70 @@
-import { Box, Paper } from '@mui/material'
+import { Box, Paper, Tabs, Tab } from '@mui/material'
 import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import React from 'react'
+import React,{ useState } from 'react'
 import EducationInfo from '../form_components/EducationInfo'
 import PersonalInfo from '../form_components/PersonalInfo'
 import WorkExperience from '../form_components/WorkExperience';
 
 
 const DetailsFillingPage = () => {
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const handleTabChange = (event, newTabIndex) => {
+    setTabIndex(newTabIndex);
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <Box sx={{
-        display:'flex',
-        flexDirection:'column',
-        gap:'20px'
-    }}>
-      <Paper elevation={5} sx={{
+<Box sx={{
+  display:'flex',
+  flexDirection:'row',
+  justifyContent:'space-evenly'
+}}>
+<Box>
+<Tabs
+          value={tabIndex}
+          onChange={handleTabChange}
+
+          orientation="vertical"
+        >
+          <Tab label="Personal Information" />
+          <Tab label="Work Experience" />
+          <Tab label="Education Information" />
+        </Tabs>
+        </Box>
+   
+
+       {tabIndex === 0 && (
+             <Paper elevation={5} sx={{
         padding:'25px',
         
     }} >
-        <PersonalInfo/> 
+        <PersonalInfo   /> 
        
         </Paper>
-        <Paper elevation={5} sx={{
+          )}
+           {tabIndex === 1 && (
+             <Paper elevation={5} sx={{
         padding:'25px',
         
     }} >
-            <WorkExperience/>
-            </Paper>
-            <Paper elevation={5} sx={{
+        <WorkExperience/>
+       
+        </Paper>
+          )}
+           {tabIndex === 2 && (
+             <Paper elevation={5} sx={{
         padding:'25px',
         
-    }}>
+    }} >
+          <EducationInfo/>
        
-            <EducationInfo/>
-            </Paper>
+        </Paper>
+          )}
+       
+     
+       
        
       
     </Box>
