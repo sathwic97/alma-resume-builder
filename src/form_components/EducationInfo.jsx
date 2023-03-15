@@ -1,4 +1,5 @@
-import {Button, Box, Divider,Typography } from '@mui/material'
+import {Button, Box, Divider,Typography, IconButton } from '@mui/material'
+import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
 import DatePickers from '../input_components/DatePickers'
 import TextFields from '../input_components/TextFields'
@@ -21,7 +22,7 @@ const schema = yup.object({
 
 const EducationInfo = () => {
 
-const {handleSubmit, formState: { errors }, control} = useForm({
+const {handleSubmit,reset, formState: { errors }, control} = useForm({
 
 defaultValues:{
 
@@ -48,7 +49,7 @@ const onSubmit = (data) => {
 <TextFields errors={errors} control={control} name={'domain'} label={'Domain'} inputProps={{
     type:'text',
 }} />
-<Box  sx={{
+<Box component='div'  sx={{
         display:"flex",
         alignItems:'center',
         gap:"15px",
@@ -63,7 +64,7 @@ const onSubmit = (data) => {
 }}/>
 
 </Box>
-<Box  sx={{
+<Box component='div' sx={{
         display:"flex",
         justifyContent:'space-evenly',
         alignItems:'center',
@@ -77,7 +78,7 @@ const onSubmit = (data) => {
 
 </Box>
 <Divider sx={{ margin:'20px 0' }} />
-<Box  sx={{
+<Box component='div' sx={{
         display:"flex",
         justifyContent:'space-between',
         alignItems:'center',
@@ -88,6 +89,9 @@ const onSubmit = (data) => {
         <Button variant="outlined" startIcon={<KeyboardReturnOutlinedIcon />}>
   Return
 </Button>
+<IconButton aria-label='refresh button' onClick={()=>(reset())} color='primary.main' size='large' >
+    <RefreshIcon/>
+</IconButton>
 <Button variant="contained" type='submit' endIcon={<SendIcon />}>
   Next
 </Button>

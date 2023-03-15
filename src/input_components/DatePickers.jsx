@@ -1,4 +1,4 @@
-import { FormControl } from '@mui/material'
+import { FormControl,FormHelperText } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers'
 import React from 'react'
 import { Controller } from 'react-hook-form'
@@ -16,7 +16,7 @@ const DatePickers = ({label, name, control, errors}) => {
             <DatePicker {...field} {...addErrorIntoField(errors[name])} name={name} label={label} views={['month','year']} required  />
         )}
    />
-{errors[name] ? <ErrorMessage message={errors[name].message} /> : null}
+ <FormHelperText id='component-error-text'> {errors[name] ? <ErrorMessage message={errors[name].message} /> : <ErrorMessage visibility={'hidden'} message={' '} /> } </FormHelperText>
     </FormControl>
   )
 }

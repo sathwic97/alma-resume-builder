@@ -1,4 +1,5 @@
-import { Box, Button, Divider, InputAdornment, Typography } from '@mui/material'
+import { Box, Button, Divider, IconButton, InputAdornment, Typography } from '@mui/material'
+import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
 import TextFields from '../input_components/TextFields'
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
@@ -51,7 +52,7 @@ const PersonalInfo = () => {
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Personal Information</Typography> 
         <Divider sx={{ margin:'20px 0' }} />
-    <Box 
+    <Box component='div'
     sx={{
         display:"flex",
         alignItems:'center',
@@ -70,7 +71,7 @@ const PersonalInfo = () => {
 
         }/>
     </Box>
-    <Box
+    <Box component='div'
     sx={{
         display:"flex",
         alignItems:'center',
@@ -95,7 +96,7 @@ const PersonalInfo = () => {
         }
 
         }/>
-         <Box
+         <Box component='div'
     sx={{
         display:"flex",
         alignItems:'center',
@@ -128,7 +129,7 @@ const PersonalInfo = () => {
 
         }/>
         <Divider sx={{ margin:'20px 0' }} />
-        <Box  sx={{
+        <Box component='div'  sx={{
         display:"flex",
         justifyContent:'space-between',
         alignItems:'center',
@@ -136,9 +137,14 @@ const PersonalInfo = () => {
 
 
     }}>
-        <Button variant="outlined" onClick={()=>(reset())} startIcon={<KeyboardReturnOutlinedIcon />}>
+        <Button variant="outlined"  startIcon={<KeyboardReturnOutlinedIcon />}>
   Return
 </Button>
+
+<IconButton aria-label='refresh button' onClick={()=>(reset())} color='primary.main' size='large' >
+    <RefreshIcon/>
+</IconButton>
+
 <Button type='submit' variant="contained" endIcon={<SendIcon />}>
   Next
 </Button>

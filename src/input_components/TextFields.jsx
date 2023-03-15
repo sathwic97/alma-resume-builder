@@ -1,4 +1,4 @@
-import { FormControl, TextField } from "@mui/material"
+import { FormControl, TextField,FormHelperText } from "@mui/material"
 import { Controller } from "react-hook-form";
 import { addErrorIntoField } from "../utils/MiscUtils";
 import ErrorMessage from "../utils/ErrorMessage";
@@ -17,7 +17,7 @@ const TextFields = ({ label, inputProps, control, name, errors }) => {
        
           )}
           />
-          {errors[name] ? <ErrorMessage message={errors[name].message} /> : null}
+         <FormHelperText id='component-error-text'> {errors[name] ? <ErrorMessage message={errors[name].message} /> : <ErrorMessage visibility={'hidden'} message={' '} />} </FormHelperText> 
 
     </FormControl>
   )

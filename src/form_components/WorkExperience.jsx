@@ -1,4 +1,5 @@
-import { Box,Button, Divider,Typography} from '@mui/material'
+import { Box,Button, Divider,Typography, IconButton} from '@mui/material'
+import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
 import DatePickers from '../input_components/DatePickers'
 import TextFields from '../input_components/TextFields'
@@ -17,7 +18,7 @@ ended: yup.string().required('Enter Date'),
 })
 
 const WorkExperience = () => {
-    const { handleSubmit, formState: { errors } , control } = useForm({
+    const { handleSubmit,reset, formState: { errors } , control } = useForm({
         defaultValues: {
           jobTitle:'',
           organisation:'',
@@ -39,7 +40,7 @@ const WorkExperience = () => {
         <Divider sx={{
             margin:'20px 0'
         }}/>
-        <Box  sx={{
+        <Box component='div' sx={{
         display:"flex",
         alignItems:'center',
         justifyContent:'space-between',
@@ -55,7 +56,7 @@ const WorkExperience = () => {
 
         </Box>
         
-        <Box  sx={{
+        <Box component='div' sx={{
         display:"flex",
         alignItems:'center',
         justifyContent:'space-between',
@@ -68,7 +69,7 @@ const WorkExperience = () => {
         </Box>
         <Divider sx={{ margin:'20px 0' }} />
 
-        <Box  sx={{
+        <Box component='div'  sx={{
         display:"flex",
         justifyContent:'space-between',
         alignItems:'center',
@@ -79,6 +80,9 @@ const WorkExperience = () => {
         <Button variant="outlined" startIcon={<KeyboardReturnOutlinedIcon />}>
   Return
 </Button>
+<IconButton aria-label='refresh button' onClick={()=>(reset())} color='primary.main' size='large' >
+    <RefreshIcon/>
+</IconButton>
 <Button variant="contained" type='submit' endIcon={<SendIcon />}>
   Next
 </Button>
