@@ -3,7 +3,7 @@ import {Typography,Grid} from '@mui/material'
 import underheading from '../assets/mark.png'
 import Box from '@mui/material/Box'
 import about from '../assets/about.png'
-import './About.css'
+import '../styles/About.css'
 
 export const About = () => {
   return (

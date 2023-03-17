@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 import { Box, Stack} from '@mui/system'
 import MenuIcon from '@mui/icons-material/Menu';
 import Almabetterlogo from '../assets/almabetterlogo.png'
-import './Navbar.css'
+import '../styles/Navbar.css'
 
 
 const drawerWidth = 240;

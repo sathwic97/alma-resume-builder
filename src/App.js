@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import { About } from "./component/About";
+import { About } from "./pages/About";
 import { Navbar } from "./component/Navbar";
-import { Templates } from "./component/Templates";
-import { Myresumes } from "./component/Myresumes";
+import { Templates } from "./pages/Templates";
+import { Myresumes } from "./pages/Myresumes";
 import './App.css';
 import { Container } from "@mui/material";
 // import { Container } from "@mui/system";
