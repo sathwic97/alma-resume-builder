@@ -1,24 +1,26 @@
-import { Routes, Route } from "react-router-dom";
-import { About } from "./pages/About";
-import { Navbar } from "./component/Navbar";
-import { Templates } from "./pages/Templates";
-import { Myresumes } from "./pages/Myresumes";
-import './App.css';
+
 import { Container } from "@mui/material";
-// import { Container } from "@mui/system";
+import DetailsFillingPage from "./pages/DetailsFillingPage";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
   return (
-    
-      <Container>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Templates/>}/>
-        <Route path="myresumes" element={<Myresumes/>}/>
-        <Route path="about" element={<About/>}/>
-      </Routes>
-      </Container>
-    
+   <Container maxWidth='xl'
+    sx={{
+      display:'flex',
+      flexDirection:'column',
+      justifyContent:'center',
+      alignItems:'center',
+
+  }}
+   >
+
+    <DetailsFillingPage/>
+
+   </Container>
   );
 }
 
