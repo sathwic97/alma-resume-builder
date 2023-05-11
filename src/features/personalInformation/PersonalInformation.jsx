@@ -1,13 +1,13 @@
 import { Box, Button, Divider, IconButton, InputAdornment, Typography } from '@mui/material'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
-import TextFields from '../input_components/TextFields'
+import TextFields from '../../input_components/TextFields'
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { phoneRegEx } from '../utils/MiscUtils';
+import { phoneRegEx } from '../../utils/MiscUtils';
 
 
 
@@ -49,6 +49,7 @@ const PersonalInfo = () => {
       }
 
   return (
+    <>
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Personal Information</Typography> 
         <Divider sx={{ margin:'20px 0' }} />
@@ -150,6 +151,7 @@ const PersonalInfo = () => {
 </Button>
 </Box>
     </Box>
+    </>
   )
 }
 

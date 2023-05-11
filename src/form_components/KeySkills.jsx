@@ -3,12 +3,9 @@ import React from 'react'
 
 const KeySkills = () => {
   return (
-    <Paper elevation={5} sx={{
-        padding:'25px',
-        
-    }}   >
-
-   </Paper>
+ <>
+ 
+ </>
   )
 }
 

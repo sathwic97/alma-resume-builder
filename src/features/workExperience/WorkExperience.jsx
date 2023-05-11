@@ -1,8 +1,8 @@
 import { Box,Button, Divider,Typography, IconButton} from '@mui/material'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
-import DatePickers from '../input_components/DatePickers'
-import TextFields from '../input_components/TextFields'
+import DatePickers from '../../input_components/DatePickers'
+import TextFields from '../../input_components/TextFields'
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
@@ -34,6 +34,7 @@ const WorkExperience = () => {
         
       }
   return (
+    <>
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Work Experience</Typography> 
 
@@ -88,6 +89,8 @@ const WorkExperience = () => {
 </Button>
 </Box>
     </Box>
+    </>
+
   )
 }
 
