@@ -13,4 +13,5 @@ export const personalInformationSlice = createSlice({
     }
 
 
-})
+});
+export default personalInformationSlice.reducer;

@@ -12,3 +12,4 @@ export const workExperienceSlice = createSlice({
 
     }
 });
+export default workExperienceSlice.reducer;

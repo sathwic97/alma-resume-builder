@@ -11,4 +11,5 @@ export const educationInformationSlice = createSlice({
     reducers:{
 
     }
-})
+});
+export default educationInformationSlice.reducer;
