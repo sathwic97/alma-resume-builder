@@ -1,4 +1,4 @@
-import {Button, Box, Divider,Typography, IconButton } from '@mui/material'
+import {Button, Box, Divider,Typography, IconButton, Paper } from '@mui/material'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
 import DatePickers from '../../input_components/DatePickers'
@@ -44,6 +44,10 @@ const onSubmit = (data) => {
 
   return (
     <>
+     <Paper elevation={5} sx={{
+        padding:'25px',
+        
+    }} >
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
     <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }} >Education Information</Typography> 
     <Divider sx={{ margin:'20px 0' }} />
@@ -98,6 +102,7 @@ const onSubmit = (data) => {
 </Button>
 </Box>
   </Box>
+  </Paper>
   </>
   )
 }

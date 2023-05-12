@@ -1,4 +1,4 @@
-import { Box,Button, Divider,Typography, IconButton} from '@mui/material'
+import { Box,Button, Divider,Typography, IconButton, Paper} from '@mui/material'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
 import DatePickers from '../../input_components/DatePickers'
@@ -35,6 +35,14 @@ const WorkExperience = () => {
       }
   return (
     <>
+                 <Paper elevation={5} sx={{
+        padding:'25px',
+        
+    }} >
+       
+       
+       
+
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Work Experience</Typography> 
 
@@ -89,6 +97,7 @@ const WorkExperience = () => {
 </Button>
 </Box>
     </Box>
+    </Paper>
     </>
 
   )

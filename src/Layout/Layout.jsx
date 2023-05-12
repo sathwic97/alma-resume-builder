@@ -4,9 +4,11 @@ const Layout = ({ children }) => {
     return (
         <>
             <Navbar />
+            <div>
             <main>
                 {children}
             </main>
+            </div>
         </>
     )
 }
