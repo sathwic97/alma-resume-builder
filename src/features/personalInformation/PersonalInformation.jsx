@@ -1,4 +1,4 @@
-import { Box, Button, Divider, IconButton, InputAdornment, Typography,Paper } from '@mui/material'
+import { Box, Button, Divider, IconButton, InputAdornment, Typography } from '@mui/material'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
 import TextFields from '../../input_components/TextFields'
@@ -50,10 +50,8 @@ const PersonalInfo = () => {
 
   return (
     <>
-     <Paper elevation={5} sx={{
-        padding:'25px',
         
-    }} >
+
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Personal Information</Typography> 
         <Divider sx={{ margin:'20px 0' }} />
@@ -155,7 +153,7 @@ const PersonalInfo = () => {
 </Button>
 </Box>
     </Box>
-    </Paper>
+
     </>
   )
 }

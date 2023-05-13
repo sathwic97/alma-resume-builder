@@ -1,89 +1,71 @@
-import { Box, Tabs, Tab, Typography } from '@mui/material'
+import { Box, Paper, Tabs, Tab } from '@mui/material'
+// import { LocalizationProvider } from '@mui/x-date-pickers'
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import React,{ useState } from 'react'
 import EducationInformation from '../features/educationInformation/EducationInformation'
 import PersonalInformation from '../features/personalInformation/PersonalInformation'
 import WorkExperience from '../features/workExperience/WorkExperience';
+// import IconButton from '@mui/material/IconButton';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+// import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+// import Drawer from '@mui/material/Drawer';
+// import {styled,useTheme} from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Layout from '../layout/Layout';
-import PropTypes from 'prop-types';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
 
-function a11yProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
-  };
-}
 
 
 const DetailsFillingPage = () => {
-  const [value, setValue] = useState(0);
+ const [tabIndex, setTabIndex] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+
+
+
+
+  const handleTabChange = (event, newTabIndex) => {
+    setTabIndex(newTabIndex);
   };
 
   return (
-  <LocalizationProvider dateAdapter={AdapterDayjs}>
+    
+    <LocalizationProvider>
     <Layout>
-    <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
-    >
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider' }}
-      >
-        <Tab label="Personal Information" {...a11yProps(0)} />
-        <Tab label="Work Experience" {...a11yProps(1)} />
-        <Tab label="Education Information" {...a11yProps(2)} />
-        <Tab label="Key Skills" {...a11yProps(3)} />
-      </Tabs>
-      <TabPanel value={value} index={0}>
-        <PersonalInformation/>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <WorkExperience/>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <EducationInformation/>
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel>
+      <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+
+      {/* <Tabs value={tabIndex} onChange={handleTabChange} orientation="horizontal">
+          <Tab label="Personal Information" />
+          <Tab label="Work Experience" />
+          <Tab label="Education Information" />
+        </Tabs> */}
+
+        <Tabs value={tabIndex} onChange={handleTabChange} orientation="vertical">
+          <Tab label="Personal Information" />
+          <Tab label="Work Experience" />
+          <Tab label="Education Information" />
+        </Tabs>
+
+        <Box style={{marginLeft:'auto', marginRight:'auto'}}>
+          <Paper elevation={5} sx={{padding:'25px'}}>
+        {tabIndex === 0 && (
+          <PersonalInformation />
+        )}
+
+        {tabIndex === 1 && (
+          <WorkExperience />
+        )}
+
+        {tabIndex === 2 && (
+            <EducationInformation />
+        )}
+          </Paper>
+        </Box>
       </Box>
     </Layout>
-    </LocalizationProvider>
- 
+  </LocalizationProvider>
   )
 }
 
