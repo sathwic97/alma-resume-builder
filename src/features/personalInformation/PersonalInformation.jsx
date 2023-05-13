@@ -135,13 +135,18 @@ const PersonalInfo = () => {
 
         }/>
     </Box>
+    <Box component='div'>
     
           <TextFields control={control} errors={errors} name='objective' label="Objective" inputProps={{
             type:'text'
         }
 
         }/>
+        
+        </Box>
+       
         <Divider sx={{ margin:'20px 0' }} />
+
         <Box component='div'  sx={{
         display:"flex",
         justifyContent:'space-between',

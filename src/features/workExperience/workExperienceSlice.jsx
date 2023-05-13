@@ -11,9 +11,13 @@ export const workExperienceSlice = createSlice({
     reducers:{
         workExperienceEntry:(state, action)=>{
             state.workExperience = action.payload
+        },
+        addMoreExperience:(state,action)=>{
+           
         }
+        
 
     }
 });
-export const {workExperienceEntry} = workExperienceSlice.actions;
+export const {workExperienceEntry,addMoreExperience} = workExperienceSlice.actions;
 export default workExperienceSlice.reducer;

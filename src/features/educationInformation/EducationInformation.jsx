@@ -8,7 +8,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import {next} from '../util_features/tabIndexSlice'; 
+import {next,back} from '../util_features/tabIndexSlice'; 
 import { useDispatch } from 'react-redux';
 import { educationInformationEntry } from './educationInformationSlice';
 //schema validation
@@ -97,7 +97,7 @@ const onSubmit = (data) => {
 
 
     }}>
-        <Button variant="outlined" startIcon={<KeyboardReturnOutlinedIcon />}>
+        <Button variant="outlined" onClick={()=> dispatch(back())} startIcon={<KeyboardReturnOutlinedIcon />}>
   Return
 </Button>
 <IconButton aria-label='refresh button' onClick={()=>(reset())} color='primary.main' size='large' >
