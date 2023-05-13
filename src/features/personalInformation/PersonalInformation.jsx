@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { phoneRegEx } from '../../utils/MiscUtils';
 import {next} from '../util_features/tabIndexSlice'; 
+import { personalInformationEntry } from './personalInformationSlice';
 import { useDispatch } from 'react-redux';
 
 
@@ -48,7 +49,7 @@ const PersonalInfo = () => {
       });
     
       const onSubmit = (data) => {
-        console.log(data);
+        dispatch(personalInformationEntry(data));
         dispatch(next());
         
       }

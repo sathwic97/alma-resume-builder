@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import {next} from '../util_features/tabIndexSlice'; 
 import { useDispatch } from 'react-redux';
+import { educationInformationEntry } from './educationInformationSlice';
 //schema validation
 const schema = yup.object({
   domain: yup.string().required('Domain is required'),
@@ -40,7 +41,7 @@ resolver: yupResolver(schema)
 });
 
 const onSubmit = (data) => {
-  console.log(data);
+  dispatch(educationInformationEntry(data));
   dispatch(next());
   
 }
