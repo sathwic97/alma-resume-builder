@@ -1,5 +1,5 @@
 import { Box, Tabs, Tab, Typography } from '@mui/material'
-import React,{ useState } from 'react'
+import React from 'react'
 import EducationInformation from '../features/educationInformation/EducationInformation'
 import PersonalInformation from '../features/personalInformation/PersonalInformation'
 import WorkExperience from '../features/workExperience/WorkExperience';
@@ -7,6 +7,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Layout from '../layout/Layout';
 import PropTypes from 'prop-types';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { useSelector } from 'react-redux';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -43,11 +44,11 @@ function a11yProps(index) {
 
 
 const DetailsFillingPage = () => {
-  const [value, setValue] = useState(0);
+  const value = useSelector((state)=> state.tabIndex.index)
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
 
   return (
   <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -59,7 +60,6 @@ const DetailsFillingPage = () => {
         orientation="vertical"
         variant="scrollable"
         value={value}
-        onChange={handleChange}
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: 'divider' }}
       >

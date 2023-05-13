@@ -8,6 +8,8 @@ import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import {next} from '../util_features/tabIndexSlice'; 
+import { useDispatch } from 'react-redux';
 
 //schema validation
 const schema = yup.object({
@@ -18,6 +20,7 @@ ended: yup.string().required('Enter Date'),
 })
 
 const WorkExperience = () => {
+  const dispatch = useDispatch();
     const { handleSubmit,reset, formState: { errors } , control } = useForm({
         defaultValues: {
           jobTitle:'',
@@ -31,6 +34,8 @@ const WorkExperience = () => {
     
       const onSubmit = (data) => {
         console.log(data);
+        dispatch(next());
+        
         
       }
   return (
@@ -44,8 +49,9 @@ const WorkExperience = () => {
        
 
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
+      <Box component='div'>
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Work Experience</Typography> 
-
+        </Box>
         <Divider sx={{
             margin:'20px 0'
         }}/>

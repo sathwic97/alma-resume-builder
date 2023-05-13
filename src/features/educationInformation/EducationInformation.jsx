@@ -8,7 +8,8 @@ import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-
+import {next} from '../util_features/tabIndexSlice'; 
+import { useDispatch } from 'react-redux';
 //schema validation
 const schema = yup.object({
   domain: yup.string().required('Domain is required'),
@@ -21,6 +22,7 @@ const schema = yup.object({
 })
 
 const EducationInfo = () => {
+  const dispatch = useDispatch();
 
 const {handleSubmit,reset, formState: { errors }, control} = useForm({
 
@@ -39,6 +41,7 @@ resolver: yupResolver(schema)
 
 const onSubmit = (data) => {
   console.log(data);
+  dispatch(next());
   
 }
 
@@ -49,7 +52,9 @@ const onSubmit = (data) => {
         
     }} >
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
+      <Box component='div'>
     <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }} >Education Information</Typography> 
+    </Box>
     <Divider sx={{ margin:'20px 0' }} />
 <TextFields errors={errors} control={control} name={'domain'} label={'Domain'} inputProps={{
     type:'text',

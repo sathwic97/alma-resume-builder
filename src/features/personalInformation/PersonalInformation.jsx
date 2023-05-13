@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { phoneRegEx } from '../../utils/MiscUtils';
+import {next} from '../util_features/tabIndexSlice'; 
+import { useDispatch } from 'react-redux';
 
 
 
@@ -26,6 +28,8 @@ const schema = yup.object({
 })
 
 const PersonalInfo = () => {
+    const dispatch = useDispatch();
+
 
     const { handleSubmit, reset, formState: { errors }, control } = useForm({
         defaultValues: {
@@ -45,6 +49,7 @@ const PersonalInfo = () => {
     
       const onSubmit = (data) => {
         console.log(data);
+        dispatch(next());
         
       }
 
@@ -55,7 +60,9 @@ const PersonalInfo = () => {
         
     }} >
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
+        <Box component='div'>
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Personal Information</Typography> 
+        </Box>
         <Divider sx={{ margin:'20px 0' }} />
     <Box component='div'
     sx={{
