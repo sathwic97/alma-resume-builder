@@ -8,6 +8,9 @@ import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import {next,back} from '../util_features/tabIndexSlice'; 
+import { useDispatch } from 'react-redux';
+import { workExperienceEntry,addMoreExperience } from './workExperienceSlice';
 
 //schema validation
 const schema = yup.object({
@@ -18,6 +21,7 @@ ended: yup.string().required('Enter Date'),
 })
 
 const WorkExperience = () => {
+  const dispatch = useDispatch();
     const { handleSubmit,reset, formState: { errors } , control } = useForm({
         defaultValues: {
           jobTitle:'',
@@ -30,7 +34,9 @@ const WorkExperience = () => {
       });
     
       const onSubmit = (data) => {
-        console.log(data);
+        dispatch(workExperienceEntry(data));
+        dispatch(next());
+        
         
       }
   return (
@@ -44,8 +50,9 @@ const WorkExperience = () => {
        
 
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
+      <Box component='div'>
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Work Experience</Typography> 
-
+        </Box>
         <Divider sx={{
             margin:'20px 0'
         }}/>
@@ -76,6 +83,12 @@ const WorkExperience = () => {
         <DatePickers errors={errors} control={control} name='ended' label='Ended' />
 
         </Box>
+        <Box component='div'
+        sx={{
+          textAlign:'center'
+        }}>
+            <Button variant='contained' size="large" onClick={()=>dispatch(addMoreExperience())} >Add More</Button>
+        </Box>
         <Divider sx={{ margin:'20px 0' }} />
 
         <Box component='div'  sx={{
@@ -86,7 +99,8 @@ const WorkExperience = () => {
 
 
     }}>
-        <Button variant="outlined" startIcon={<KeyboardReturnOutlinedIcon />}>
+    
+        <Button variant="outlined" onClick={()=>{dispatch(back())}} startIcon={<KeyboardReturnOutlinedIcon />}>
   Return
 </Button>
 <IconButton aria-label='refresh button' onClick={()=>(reset())} color='primary.main' size='large' >
