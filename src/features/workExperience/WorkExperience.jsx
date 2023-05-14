@@ -74,6 +74,22 @@ const WorkExperience = () => {
         }} />
 
         </Box>
+        <Box component='div' sx={{
+        display:"flex",
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+        gap:"5px",
+
+    }}>
+        <TextFields errors={errors} control={control} name='jobPoint1' label='Point 1' inputProps={{
+            type:'text'
+        }} />
+        <TextFields errors={errors} control={control} name='organisation' label='Organisation' inputProps={{
+            type:'text'
+        }} />
+
+        </Box>
         
         <Box component='div' sx={{
         display:"flex",
