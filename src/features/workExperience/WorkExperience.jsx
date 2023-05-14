@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import {next,back} from '../util_features/tabIndexSlice'; 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { workExperienceEntry,addMoreExperience } from './workExperienceSlice';
 
 //schema validation
@@ -22,6 +22,7 @@ ended: yup.string().required('Enter Date'),
 
 const WorkExperience = () => {
   const dispatch = useDispatch();
+  const status = useSelector((state)=>state.workExperience.status);
     const { handleSubmit,reset, formState: { errors } , control } = useForm({
         defaultValues: {
           jobTitle:'',
@@ -34,8 +35,10 @@ const WorkExperience = () => {
       });
     
       const onSubmit = (data) => {
+        
         dispatch(workExperienceEntry(data));
-        dispatch(next());
+        if(status === 'filled')
+         dispatch(next());
         
         
       }

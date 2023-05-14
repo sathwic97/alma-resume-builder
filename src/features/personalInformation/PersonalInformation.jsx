@@ -7,10 +7,10 @@ import SendIcon from '@mui/icons-material/Send';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { phoneRegEx } from '../../utils/MiscUtils';
+import { phoneRegEx, postalCodeRegEx } from '../../utils/MiscUtils';
 import {next} from '../util_features/tabIndexSlice'; 
 import { personalInformationEntry } from './personalInformationSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -23,13 +23,14 @@ const schema = yup.object({
     address: yup.string().required('Address is required').min(5,'Please enter valid address'),
     city: yup.string().required('City is required').min(2,'Please enter your City'),
     state: yup.string().required('State is required').min(2,'Please enter your State'),
-    postalCode: yup.string().required('Postal Code is required').min(6,'Please enter valid code'),
+    postalCode: yup.string().required('Postal Code is required').matches(postalCodeRegEx,'Enter valid code'),
     objective: yup.string().required('Objective is required').min(10,'Please enter your objective'),
 
 })
 
-const PersonalInfo = () => {
+const PersonalInformation = () => {
     const dispatch = useDispatch();
+    const status = useSelector((state)=> state.personalInformation.status);
 
 
     const { handleSubmit, reset, formState: { errors }, control } = useForm({
@@ -50,7 +51,9 @@ const PersonalInfo = () => {
     
       const onSubmit = (data) => {
         dispatch(personalInformationEntry(data));
-        dispatch(next());
+
+        if( status === 'filled')
+         dispatch(next());
         
       }
 
@@ -63,8 +66,9 @@ const PersonalInfo = () => {
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
         <Box component='div'>
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Personal Information</Typography> 
-        </Box>
         <Divider sx={{ margin:'20px 0' }} />
+        </Box>
+      
     <Box component='div'
     sx={{
         display:"flex",
@@ -173,4 +177,4 @@ const PersonalInfo = () => {
   )
 }
 
-export default PersonalInfo
+export default PersonalInformation;

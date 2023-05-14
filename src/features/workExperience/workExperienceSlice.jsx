@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     workExperience:[],
-    status:'idle',
+    status:'default',
 }
 
 export const workExperienceSlice = createSlice({
@@ -10,7 +10,8 @@ export const workExperienceSlice = createSlice({
     initialState,
     reducers:{
         workExperienceEntry:(state, action)=>{
-            state.workExperience = action.payload
+            state.workExperience = action.payload;
+            state.status = 'filled';
         },
         addMoreExperience:(state,action)=>{
            

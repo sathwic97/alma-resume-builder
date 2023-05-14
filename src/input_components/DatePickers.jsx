@@ -13,7 +13,7 @@ const DatePickers = ({label, name, control, errors}) => {
         name={name}
         control={control}
         render={({ field })=>(
-            <DatePicker {...field} {...addErrorIntoField(errors[name])} name={name} label={label} views={['month','year']} required  />
+            <DatePicker {...field} {...addErrorIntoField(errors[name])} name={name} label={label} views={['month','year']} format="MM-YYYY"  required  />
         )}
    />
  <FormHelperText id='component-error-text'> {errors[name] ? <ErrorMessage message={errors[name].message} /> : <ErrorMessage visibility={'hidden'} message={' '} /> } </FormHelperText>

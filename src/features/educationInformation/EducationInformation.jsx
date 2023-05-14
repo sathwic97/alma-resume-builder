@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import {next,back} from '../util_features/tabIndexSlice'; 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { educationInformationEntry } from './educationInformationSlice';
 //schema validation
 const schema = yup.object({
@@ -22,8 +22,9 @@ const schema = yup.object({
 
 })
 
-const EducationInfo = () => {
+const EducationInformation = () => {
   const dispatch = useDispatch();
+  const status = useSelector((state)=>state.educationInformation.status)
 
 const {handleSubmit,reset, formState: { errors }, control} = useForm({
 
@@ -42,7 +43,9 @@ resolver: yupResolver(schema)
 
 const onSubmit = (data) => {
   dispatch(educationInformationEntry(data));
+  if(status === 'filled')
   dispatch(next());
+  
   
 }
 
@@ -113,4 +116,4 @@ const onSubmit = (data) => {
   )
 }
 
-export default EducationInfo
+export default EducationInformation;

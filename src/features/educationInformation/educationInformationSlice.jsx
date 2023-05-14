@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     educationInformation: [],
-    status:'idle',
+    status:'default',
 }
 
 export const educationInformationSlice = createSlice({
@@ -10,7 +10,8 @@ export const educationInformationSlice = createSlice({
     initialState,
     reducers:{
         educationInformationEntry:(state,action)=>{
-            state.educationInformation = action.payload
+            state.educationInformation = action.payload;
+            state.status = 'filled';
         }
 
     }

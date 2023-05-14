@@ -11,7 +11,7 @@ const ErrorMessage = ({message,visibility}) => {
       visibility:`${visibility}`
     }}>
       <ErrorIcon color="error" sx={{width: '20px'}} />
-      <Typography color='error.main' variant='span' fontSize='14px'>
+      <Typography color='error.main' variant='span' fontSize='10px'>
         {message}
       </Typography>
     </Box>
