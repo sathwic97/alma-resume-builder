@@ -44,11 +44,7 @@ function a11yProps(index) {
 
 
 const DetailsFillingPage = () => {
-  const value = useSelector((state)=> state.tabIndex.index)
-
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
+  const value = useSelector((state)=> state.tabIndex.index);
 
   return (
   <LocalizationProvider dateAdapter={AdapterDayjs}>
