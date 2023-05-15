@@ -3,7 +3,7 @@ import { Controller } from "react-hook-form";
 import { addErrorIntoField } from "../utils/MiscUtils";
 import ErrorMessage from "../utils/ErrorMessage";
 
-const TextFields = ({ label, inputProps, control, name, errors }) => {
+const TextFields = ({ label, inputProps, control, name, errors, placeholder }) => {
   return (
     <FormControl fullWidth sx={{ mb: '1rem' }}>
 
@@ -13,7 +13,7 @@ const TextFields = ({ label, inputProps, control, name, errors }) => {
         control={control}
         render={({ field }) => (
      
-          <TextField   {...field } {...addErrorIntoField(errors[name]) } name={name} required label={label} variant="outlined" InputProps={inputProps} helperText={errors[name] ? <ErrorMessage message={errors[name].message} /> : <ErrorMessage visibility={'hidden'} message={' '} />}  />
+          <TextField   {...field } {...addErrorIntoField(errors[name]) } name={name} required label={label} variant="outlined" InputProps={inputProps} helperText={errors[name] ? <ErrorMessage message={errors[name].message} /> : <ErrorMessage visibility={'hidden'} message={' '} />} placeholder={placeholder}  />
        
           )}
           />

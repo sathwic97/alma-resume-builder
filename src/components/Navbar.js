@@ -51,7 +51,7 @@ export const Navbar = (props) => {
 
   return (
     <>
-      <AppBar  component="nav" sx={{backgroundColor:'white' , color: 'black',padding:{xs:'3px',sm:'10px'}}} className="appbar">
+      <AppBar  component="nav" sx={{backgroundColor:'white' , color: 'black',padding:{xs:'3px',sm:'10px'},position:'relative',top:'0px'}}>
        <Box display={'flex'}
        flexDirection={'row'}
        alignItems={'center'}

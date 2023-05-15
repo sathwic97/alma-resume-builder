@@ -15,7 +15,12 @@ import { workExperienceEntry,addMoreExperience } from './workExperienceSlice';
 //schema validation
 const schema = yup.object({
 jobTitle: yup.string().required('Job Title is required').min(3,'Please enter valid title'),
-organisation: yup.string().required('Organisation name is required'),
+organisation: yup.string().required('Organisation name is required').min(3,'Please enter valid name'),
+jobPoint1: yup.string().required('Enter achievement/task').min(7,'Please enter a sentence'),
+jobPoint2: yup.string().required('Enter achievement/task').min(7,'Please enter a sentence'),
+
+jobPoint3: yup.string().required('Enter achievement/task').min(7,'Please enter a sentence'),
+
 started: yup.string().required('Enter Date'),
 ended: yup.string().required('Enter Date'),
 })
@@ -27,6 +32,9 @@ const WorkExperience = () => {
         defaultValues: {
           jobTitle:'',
           organisation:'',
+          jobPoint1:'',
+          jobPoint2:'',
+          jobPoint3:'',
           started:'',
           ended:'',
 
@@ -82,10 +90,13 @@ const WorkExperience = () => {
         gap:"5px",
 
     }}>
-        <TextFields errors={errors} control={control} name='jobPoint1' label='Point 1' inputProps={{
+        <TextFields errors={errors} control={control} name='jobPoint1' label='Point 1' placeholder={'Achievements/Tasks'} inputProps={{
             type:'text'
         }} />
-        <TextFields errors={errors} control={control} name='organisation' label='Organisation' inputProps={{
+        <TextFields errors={errors} control={control} name='jobPoint2' label='Point 2' placeholder={'Achievements/Tasks'} inputProps={{
+            type:'text'
+        }} />
+        <TextFields errors={errors} control={control} name='jobPoint3' label='Point 3' placeholder={'Achievements/Tasks'} inputProps={{
             type:'text'
         }} />
 

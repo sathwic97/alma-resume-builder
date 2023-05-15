@@ -3,12 +3,14 @@ import personalInformationReducer from '../features/personalInformation/personal
 import educationInformationReducer from '../features/educationInformation/educationInformationSlice';
 import workExperienceReducer from '../features/workExperience/workExperienceSlice';
 import tabIndexReducer from '../features/util_features/tabIndexSlice';
+import resumeOptionsReducer from '../features/resumeTemplates/resumeOptionsSlice';
 
 export const store = configureStore({
     reducer:{
         personalInformation: personalInformationReducer,
-        educationInformation: educationInformationReducer,
         workExperience: workExperienceReducer,
+        educationInformation: educationInformationReducer,
+        resumeOptions : resumeOptionsReducer,
         tabIndex: tabIndexReducer,
 
     }

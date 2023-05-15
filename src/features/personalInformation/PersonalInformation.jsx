@@ -1,4 +1,4 @@
-import { Box, Button, Divider, IconButton, InputAdornment, Typography } from '@mui/material'
+import { Box, Button, Divider, IconButton, InputAdornment, Typography, Paper } from '@mui/material'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import React from 'react'
 import TextFields from '../../input_components/TextFields'
@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const schema = yup.object({
     firstName: yup.string().required('First Name is required').min(3,'Please enter valid name').max(25,'Please enter valid name'),
     lastName: yup.string().required('Last Name is required').min(3,'Please enter valid name').max(25,'Please enter valid name'),
+    role: yup.string().required('Please enter your job role').min(3,'Please enter valid name').max(30,'Please enter valid name'),
     email: yup.string().required('Email is required').email(),
     mobileNumber: yup.string().required('Mobile Number is required').matches(phoneRegEx, 'Mobile number is not valid'),
     address: yup.string().required('Address is required').min(5,'Please enter valid address'),
@@ -37,6 +38,7 @@ const PersonalInformation = () => {
         defaultValues: {
           firstName:'',
           lastName:'',
+          role:'',
           email:'',
           mobileNumber:'',
           address:'',
@@ -59,12 +61,15 @@ const PersonalInformation = () => {
 
   return (
     <>
+        <Paper elevation={5} sx={{
+        padding:'25px',
         
+    }} >
 
     <Box noValidate component='form' onSubmit={handleSubmit(onSubmit)}   >
         <Box component='div'>
         <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>Personal Information</Typography> 
-        <Divider sx={{ margin:'20px 0' }} />
+        <Divider sx={{ margin:'20px 0'}} />
         </Box>
       
     <Box component='div'
@@ -81,6 +86,19 @@ const PersonalInformation = () => {
 
         }/>
         <TextFields control={control} errors={errors} name='lastName' label="Last Name" inputProps={{
+            type:'text'
+        }
+
+        }/>
+    </Box>
+    <Box component='div'
+    sx={{
+        display:"flex",
+        alignItems:'center',
+       
+
+    }}>
+        <TextFields control={control} errors={errors} name='role' label="Job Role" inputProps={{
             type:'text'
         }
 
@@ -170,7 +188,7 @@ const PersonalInformation = () => {
 </Button>
 </Box>
     </Box>
-
+    </Paper>
     </>
   )
 }
