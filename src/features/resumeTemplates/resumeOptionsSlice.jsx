@@ -9,10 +9,10 @@ const initialState = {
     subTitleColor:'black',
     pointsColor:'black',
     backgroundColor:'transparent',
-    borderColor:'transparent',
-    borderWidth:'2',
+    borderColor:'blue',
+    borderWidth:'10',
     sectionHeadingColor:'black',
-    sectionHeadingStyle:'column',
+    sectionHeadingStyle:'column-reverse',
 }
 
 const resumeOptionsSlice = createSlice({

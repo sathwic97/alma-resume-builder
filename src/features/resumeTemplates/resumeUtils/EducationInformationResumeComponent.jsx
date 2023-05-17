@@ -11,20 +11,21 @@ const EducationInformationResumeComponent = () => {
     <>
     <Grid container direction={'column'}>
         <Grid container direction={`${resumeOptions.sectionHeadingStyle}`} justifyContent="center" alignItems="flex-start">
-            <Grid item>
-                
-                    <Divider sx={{ borderBottomWidth : `${resumeOptions.borderWidth}px` , borderColor: `${resumeOptions.borderColor}`,}}>
-                        </Divider>
-                        
-            </Grid>
+        <Grid xs={'12'} item>
+    <Divider sx={{ borderBottomWidth : `${resumeOptions.borderWidth}px` , borderColor: `${resumeOptions.borderColor}`,
+
+    }}></Divider>
+</Grid>
             <Grid item>
                 
                     <Typography color={`${resumeOptions.sectionHeadingColor}`} variant="h4">Education Information</Typography>
                 
             </Grid>
-            {educationInfo?.map((educationInfo)=>( 
+            </Grid>
+            <Grid>
+            
                            <EducationInformationResumeBit degree={educationInfo.degree} domain={educationInfo.domain} 
-            university={educationInfo.university} start={educationInfo.started} end={educationInfo.ended} /> ))}
+            university={educationInfo.university} start={educationInfo.started} end={educationInfo.ended} />
 
 
         </Grid>

@@ -2,7 +2,7 @@ import { Typography,Grid} from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const EducationInformationResumeBit = (degree,domain,university,start,end) => {
+const EducationInformationResumeBit = ({degree,domain,university,start,end}) => {
     const resumeOptions = useSelector((state)=> state.resumeOptions);
   return (
     <>

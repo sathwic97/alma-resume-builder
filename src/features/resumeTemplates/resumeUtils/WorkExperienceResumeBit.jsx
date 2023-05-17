@@ -2,7 +2,7 @@ import { Typography,Grid, List, ListItem } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const WorkExperienceResumeBit = (workTitle,start,end,organisation, point1,point2,point3) => {
+const WorkExperienceResumeBit = ({workTitle,start,end,organisation, point1,point2,point3}) => {
     const resumeOptions = useSelector((state)=> state.resumeOptions);
   return (
     <>
@@ -19,7 +19,7 @@ const WorkExperienceResumeBit = (workTitle,start,end,organisation, point1,point2
             </Grid>
             <Grid item xs>
                 
-                    <Typography paragraph> {organisation} ,  {start} - {end} </Typography>
+                    <Typography paragraph>{organisation} ,  {start} - {end} </Typography>
                 
             </Grid>
             <Grid item xs={'3'}>
