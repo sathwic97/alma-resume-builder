@@ -2,7 +2,7 @@ import { Typography,Grid,Item, Divider } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-export default function PersonalInformationResumeComponent(borderWidth) {
+export default function PersonalInformationResumeComponent( ) {
   const personalInfo = useSelector((state)=>state.personalInformation.personalInformation);
   const resumeOptions = useSelector((state)=> state.resumeOptions);
   return (
@@ -13,39 +13,42 @@ export default function PersonalInformationResumeComponent(borderWidth) {
   justifyContent="space-between"
   alignItems="stretch"    >
   <Grid item xs>
-    <Item>xs</Item>
+    xs
   </Grid>
   <Grid container direction={'column'}  justifyContent="center"
   alignItems="flex-start" spacing={'3'} xs>
-  <Grid container color={resumeOptions.nameColor}
+  <Grid container color={`${resumeOptions.nameColor}`}
   direction="row"
   justifyContent="center"
   alignItems="center" spacing={'2'}>
     <Grid item>
-    <Item><Typography variant='h3'>{personalInfo.firstName}</Typography></Item>
+    <Typography variant='h3'>{personalInfo.firstName}</Typography>
     </Grid>
     <Grid item>
-    <Item><Typography variant='h3'>{personalInfo.lastName}</Typography></Item>
+    <Typography variant='h3'>{personalInfo.lastName}</Typography>
     </Grid>
   </Grid>
-  <Grid item color={resumeOptions.roleColor} >
-    <Item><Typography variant='h4'>{personalInfo.role}</Typography></Item>
+  <Grid item color={`${resumeOptions.roleColor}`} >
+    <Typography variant='h4'>{personalInfo.role}</Typography>
   </Grid>
   </Grid>
-  <Grid container   direction="column" color={resumeOptions.extraInformationColor}
+  <Grid container   direction="column" color={`${resumeOptions.extraInformationColor}`}
   justifyContent="flex-start"
-  alignItems="flex-end" spacing={'1'} xs sx={{color:{}}}>
-    <Grid wrap item><Item><Typography paragraph>{personalInfo.address}</Typography></Item></Grid>
-    <Grid item><Item><Typography paragraph >{personalInfo.city}, {personalInfo.state} - {personalInfo.postalCode}</Typography></Item></Grid>
-    <Grid item><Item><Typography paragraph >{personalInfo.email}</Typography></Item></Grid>
-    <Grid item><Item><Typography paragraph >{personalInfo.mobileNumber}</Typography></Item></Grid>
+  alignItems="flex-end" spacing={'1'} xs >
+    <Grid wrap item><Typography paragraph>{personalInfo.address}</Typography></Grid>
+    <Grid item><Typography paragraph >{personalInfo.city}, {personalInfo.state} - {personalInfo.postalCode}</Typography></Grid>
+    <Grid item><Typography paragraph >{personalInfo.email}</Typography></Grid>
+    <Grid item><Typography paragraph >{personalInfo.mobileNumber}</Typography></Grid>
     
   </Grid>
 </Grid>
 <Grid xs={'12'} item>
-    <Item><Divider sx={{ borderBottomWidth : `${resumeOptions.borderWidth}` , borderColor: `${resumeOptions.borderColor}`,
+    <Divider sx={{ borderBottomWidth : `${resumeOptions.borderWidth}px` , borderColor: `${resumeOptions.borderColor}`,
 
-    }}></Divider></Item>
+    }}></Divider>
+</Grid>
+<Grid item wrap='true' xs={'12'}>
+  <Typography paragraph color={`${resumeOptions.objectiveColor}`} >{personalInfo.objective}</Typography>
 </Grid>
 
 

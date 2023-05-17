@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    workExperience:[],
+    workExperience:[
+       
+    ],
     status:'default',
 }
 
@@ -14,6 +16,7 @@ export const workExperienceSlice = createSlice({
             state.status = 'filled';
         },
         addMoreExperience:(state,action)=>{
+            state.workExperience.push(action.payload)
            
         }
         

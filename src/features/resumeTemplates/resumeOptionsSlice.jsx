@@ -12,6 +12,7 @@ const initialState = {
     borderColor:'transparent',
     borderWidth:'2',
     sectionHeadingColor:'black',
+    sectionHeadingStyle:'column',
 }
 
 const resumeOptionsSlice = createSlice({
@@ -54,11 +55,14 @@ const resumeOptionsSlice = createSlice({
         },
         updateBorderWidth: (state,action)=>{
             state.borderWidth = action.payload;
+        },
+        updateSectionHeadingStyle:(state,action)=>{
+            state.sectionHeadingStyle = action.payload;
         }
 
         
 
     }
 });
-export const {updateResumeTemplateId,updateBackgroundColor,updateBorderColor,updateNameColor,updateRoleColor,updateSectionHeadingColor,updateExtraInformationColor,updatePointsColor,updateSubTitleColor,updateObjectiveColor,updateBorderWidth} = resumeOptionsSlice.actions;
+export const {updateBackgroundColor,updateBorderColor,updateNameColor,updateRoleColor,updateSectionHeadingColor,updateExtraInformationColor,updatePointsColor,updateSubTitleColor,updateObjectiveColor,updateBorderWidth,updateResumeTemplateId,updateSectionHeadingStyle} = resumeOptionsSlice.actions;
 export default resumeOptionsSlice.reducer;

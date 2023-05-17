@@ -8,6 +8,7 @@ import Layout from '../layout/Layout';
 import PropTypes from 'prop-types';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useSelector } from 'react-redux';
+import ResumeTemplate from '../features/resumeTemplates/ResumeTemplate';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,6 +64,8 @@ const DetailsFillingPage = () => {
         <Tab label="Work Experience" {...a11yProps(1)} />
         <Tab label="Education Information" {...a11yProps(2)} />
         <Tab label="Key Skills" {...a11yProps(3)} />
+        <Tab label="Preview" {...a11yProps(4)} />
+
       </Tabs>
       <TabPanel value={value} index={0}>
         <PersonalInformation/>
@@ -74,7 +77,10 @@ const DetailsFillingPage = () => {
         <EducationInformation/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <ResumeTemplate/>
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Item 5
       </TabPanel>
       </Box>
     </Layout>

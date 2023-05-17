@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
     return (
         <>
             <Navbar />
-            <Box sx={{position:'relative',top:'0px'}}>
+            <Box sx={{position:'relative',top:'5px'}}>
             <main>
                 {children}
             </main>

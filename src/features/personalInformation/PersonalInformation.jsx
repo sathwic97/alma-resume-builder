@@ -124,7 +124,7 @@ const PersonalInformation = () => {
 
         }/>
     </Box>
-    <TextFields control={control} errors={errors} name='address' label="Address" inputProps={{
+    <TextFields control={control} errors={errors} name='address' multiLine={'true'}  label="Address" inputProps={{
             type:'text'
         }
 
@@ -157,7 +157,7 @@ const PersonalInformation = () => {
     </Box>
     <Box component='div'>
     
-          <TextFields control={control} errors={errors} name='objective' label="Objective" inputProps={{
+          <TextFields control={control} errors={errors} multiLine={'true'} name='objective' label="Objective" inputProps={{
             type:'text'
         }
 

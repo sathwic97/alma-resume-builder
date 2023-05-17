@@ -9,8 +9,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import {next,back} from '../util_features/tabIndexSlice'; 
-import { useDispatch, useSelector } from 'react-redux';
-import { workExperienceEntry,addMoreExperience } from './workExperienceSlice';
+import { useDispatch } from 'react-redux';
+import { workExperienceEntry} from './workExperienceSlice';
 
 //schema validation
 const schema = yup.object({
@@ -27,7 +27,7 @@ ended: yup.string().required('Enter Date'),
 
 const WorkExperience = () => {
   const dispatch = useDispatch();
-  const status = useSelector((state)=>state.workExperience.status);
+
     const { handleSubmit,reset, formState: { errors } , control } = useForm({
         defaultValues: {
           jobTitle:'',
@@ -41,13 +41,13 @@ const WorkExperience = () => {
         },
         resolver: yupResolver(schema)
       });
+     
     
       const onSubmit = (data) => {
-        
+       
         dispatch(workExperienceEntry(data));
-        if(status === 'filled')
-         dispatch(next());
-        
+       
+       dispatch(next())
         
       }
   return (
@@ -90,13 +90,13 @@ const WorkExperience = () => {
         gap:"5px",
 
     }}>
-        <TextFields errors={errors} control={control} name='jobPoint1' label='Point 1' placeholder={'Achievements/Tasks'} inputProps={{
+        <TextFields errors={errors} control={control} name='jobPoint1' label='Achievements/Tasks'  inputProps={{
             type:'text'
         }} />
-        <TextFields errors={errors} control={control} name='jobPoint2' label='Point 2' placeholder={'Achievements/Tasks'} inputProps={{
+        <TextFields errors={errors} control={control} name='jobPoint2' label='Achievements/Tasks'  inputProps={{
             type:'text'
         }} />
-        <TextFields errors={errors} control={control} name='jobPoint3' label='Point 3' placeholder={'Achievements/Tasks'} inputProps={{
+        <TextFields errors={errors} control={control} name='jobPoint3' label='Achievements/Tasks'  inputProps={{
             type:'text'
         }} />
 
@@ -113,12 +113,14 @@ const WorkExperience = () => {
         <DatePickers errors={errors} control={control} name='ended' label='Ended' />
 
         </Box>
-        <Box component='div'
+        {/* <Box component='div'
         sx={{
           textAlign:'center'
         }}>
-            <Button variant='contained' size="large" onClick={()=>dispatch(addMoreExperience())} >Add More</Button>
-        </Box>
+            <Button variant='contained' size="large" onClick={()=>dispatch(addMoreExperience({
+
+            }))} >Add More</Button>
+        </Box> */}
         <Divider sx={{ margin:'20px 0' }} />
 
         <Box component='div'  sx={{
@@ -147,4 +149,5 @@ const WorkExperience = () => {
   )
 }
 
-export default WorkExperience
+export default WorkExperience;
+
