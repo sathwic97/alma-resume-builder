@@ -18,6 +18,7 @@ const ResumeTemplate = () => {
         <EducationInformationResumeComponent/>
      </Paper>   
 
+
     </Container>
     </>
   )

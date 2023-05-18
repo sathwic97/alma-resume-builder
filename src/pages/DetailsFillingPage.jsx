@@ -13,7 +13,7 @@ import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
 import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Layout from '../Layout/Layout'
+import Layout from '../layout/Layout'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
