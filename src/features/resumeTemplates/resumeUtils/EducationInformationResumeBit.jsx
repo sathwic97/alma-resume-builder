@@ -7,8 +7,8 @@ const EducationInformationResumeBit = ({degree,domain,university,start,end}) => 
   return (
     <>
     <Grid container>
-        {resumeOptions.sectionHeadingStyle === 'column-reverse' ?  
-        <>
+        {resumeOptions.sectionHeadingStyle === 'column-reverse' &&  
+        
         
          <Grid container direction={'row'} spacing={'2'} justifyContent={'flex-start'} alignItems={'center'}   >
            
@@ -30,29 +30,40 @@ const EducationInformationResumeBit = ({degree,domain,university,start,end}) => 
          </Grid>
         
 
-         </>
-            : 
-            <>
+  }
+            
+            
+            
+            
+            {resumeOptions.sectionHeadingStyle === 'column' &&
            
-                
-            <Grid container direction={'column'} spacing={'1'} justifyContent={'center'} alignItems={'center'}   >
            
-            <Grid item xs>
-                
-                    <Typography variant='h4'>{degree} - {domain}</Typography>
-                    
-            </Grid>
-            <Grid item xs>
-                
-                    <Typography paragraph>{university} , {start} - {end} </Typography>
-                
-            </Grid>  
-                
+           
+           <Grid container direction={'column'} spacing={'1'} justifyContent={'center'} alignItems={'center'}   >
+          
+           <Grid item xs>
+               
+                   <Typography variant='h4'>{degree} - {domain}</Typography>
+                   
+           </Grid>
+           <Grid item xs>
+               
+                   <Typography paragraph>{university} , {start} - {end} </Typography>
+               
+           </Grid>  
+               
 
-         </Grid> 
+        </Grid> 
+      
+
+            }
+            
+        
+         
+  
 
 
-         </>  }
+          
 
       
        

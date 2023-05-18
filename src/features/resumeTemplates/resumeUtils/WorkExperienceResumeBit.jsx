@@ -7,9 +7,11 @@ const WorkExperienceResumeBit = ({workTitle,start,end,organisation, point1,point
   return (
     <>
     <Grid container>
-        {resumeOptions.sectionHeadingStyle === 'column-reverse' ?  
+
+
+        {resumeOptions.sectionHeadingStyle === 'column-reverse' &&
+       
         <>
-        
          <Grid container direction={'row'} spacing={'2'} justifyContent={'flex-start'} alignItems={'center'}   >
            
             <Grid item xs>
@@ -43,12 +45,12 @@ const WorkExperienceResumeBit = ({workTitle,start,end,organisation, point1,point
             </Grid>
 
          </Grid>
-
          </>
-            : 
-            <>
+
+  }
            
-                
+           {resumeOptions.sectionHeadingStyle === 'column' &&
+               <>
             <Grid container direction={'column'} spacing={'1'} justifyContent={'center'} alignItems={'center'}   >
            
             <Grid item xs>
@@ -79,9 +81,10 @@ const WorkExperienceResumeBit = ({workTitle,start,end,organisation, point1,point
             </Grid>
 
          </Grid>
+         </> 
 
-
-         </>  }
+           }
+         
 
       
        
