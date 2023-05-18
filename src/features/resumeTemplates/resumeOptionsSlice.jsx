@@ -2,17 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     resumeTemplateId:'',
-    nameColor:'black',
-    roleColor:'black',
-    extraInformationColor:'black',
-    objectiveColor:'black',
+    nameColor:'blue',
+    roleColor:'violet',
+    extraInformationColor:'red',
+    objectiveColor:'yellow',
     subTitleColor:'black',
     pointsColor:'black',
-    backgroundColor:'transparent',
+    backgroundColor:'blue',
     borderColor:'blue',
-    borderWidth:'10',
+    borderWidth:'15',
     sectionHeadingColor:'black',
-    sectionHeadingStyle:'column-reverse',
+    sectionHeadingStyle:'column',
 }
 
 const resumeOptionsSlice = createSlice({

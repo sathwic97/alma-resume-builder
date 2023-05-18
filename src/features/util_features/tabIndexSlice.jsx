@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    index: 0,
+    index: 3,
 };
 
 export const tabIndexSlice = createSlice({

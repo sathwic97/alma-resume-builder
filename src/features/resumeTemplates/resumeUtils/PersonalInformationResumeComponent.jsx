@@ -11,7 +11,7 @@ export default function PersonalInformationResumeComponent( ) {
     <Grid   container
   direction="row"
   justifyContent="space-between"
-  alignItems="stretch"    >
+  alignItems="stretch" bgcolor={`${resumeOptions.backgroundColor}`}   >
   <Grid item xs>
     xs
   </Grid>

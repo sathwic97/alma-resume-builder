@@ -10,7 +10,7 @@ const WorkExperienceResumeComponent = () => {
     const workInfo = useSelector((state)=> state.workExperience.workExperience);
   return (
     <>
-    <Grid container direction={'column'}>
+    <Grid container >
         <Grid container direction={`${resumeOptions.sectionHeadingStyle}`} justifyContent="center" alignItems="flex-start">
         <Grid xs={'12'} item>
     <Divider sx={{ borderBottomWidth : `${resumeOptions.borderWidth}px` , borderColor: `${resumeOptions.borderColor}`,
