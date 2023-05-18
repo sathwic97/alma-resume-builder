@@ -157,7 +157,7 @@ const PersonalInformation = () => {
     </Box>
     <Box component='div'>
     
-          <TextFields control={control} errors={errors} multiLine={'true'} name='objective' label="Objective" inputProps={{
+          <TextFields control={control} errors={errors} multiline={'true'} name='objective' label="Objective" inputProps={{
             type:'text'
         }
 
