@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import AppBar from '@mui/material/AppBar'
 import { Drawer,  List, Typography } from '@mui/material'
 import {IconButton} from '@mui/material'
@@ -13,7 +14,7 @@ import '../styles/Navbar.css'
 const drawerWidth = 240;
 
 export const Navbar = (props) => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen (!mobileOpen);
@@ -50,7 +51,7 @@ export const Navbar = (props) => {
 
   return (
     <>
-      <AppBar  component="nav" sx={{backgroundColor:'white' , color: 'black',padding:{xs:'3px',sm:'10px'}}} className="appbar">
+      <AppBar  component="nav" sx={{backgroundColor:'white' , color: 'black',padding:{xs:'3px',sm:'10px'}}}>
        <Box display={'flex'}
        flexDirection={'row'}
        alignItems={'center'}

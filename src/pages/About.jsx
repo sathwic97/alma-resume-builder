@@ -4,11 +4,11 @@ import underheading from '../assets/mark.png'
 import Box from '@mui/material/Box'
 import about from '../assets/about.png'
 import '../styles/About.css'
-import Layout from '../Layout/Layout'
+// import Layout from '../layout/Layout'
 
 const About = () => {
   return (
-    <Layout>
+    <div>
       <Typography className="heading" sx={{ display: { xs: 'block', sm: 'none', md: 'none' } }}>
         Resume  Builder
       </Typography>
@@ -39,7 +39,7 @@ const About = () => {
           </Grid>
         </Grid>
       </Box>
-    </Layout>
+      </div>
   )
 }
 
